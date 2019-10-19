@@ -7,7 +7,8 @@ setup(
     include_package_data=True,
     zip_safe=False,
     install_requires=[
-        'flask',
-        'Flask_SQLAlchemy'
+        'Flask',
+        'Flask_SQLAlchemy',
+        'Click'
     ],
 )
