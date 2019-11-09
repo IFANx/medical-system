@@ -9,6 +9,7 @@ setup(
     install_requires=[
         'Flask',
         'Flask_SQLAlchemy',
-        'Click'
+        'Click',
+        'mysqlclient'
     ],
 )
