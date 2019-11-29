@@ -45,7 +45,8 @@ class Hospital(db.Model):
 class Article(db.Model):
     __tablename__ = 'article'
 
-    id = db.Column(db.String(10), primary_key=True)  # 文章表ID
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    tid = db.Column(db.String(50))  # 文章表ID
     name = db.Column(db.String(80))  # 医生名字
     depart = db.Column(db.String(120))  # 医生单位
     article_id = db.Column(db.String(80))  # 文章ID
