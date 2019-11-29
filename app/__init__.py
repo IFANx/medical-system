@@ -10,6 +10,7 @@ def create_app(test_config=None):
         # SQLALCHEMY_DATABASE_URI='sqlite:///'+os.path.join(app.instance_path, 'medical.db'),
         SQLALCHEMY_DATABASE_URI='mysql://medical:develop@127.0.0.1:3306/medical',  # mariadb uri
         SQLALCHEMY_TRACK_MODIFICATIONS=False,
+        SQLALCHEMY_ECHO=True,
     )
 
     if test_config is None:
@@ -30,8 +31,14 @@ def create_app(test_config=None):
     init_app(app)
 
     # a simple page that says hello
-    @app.route('/hello')
+    @app.route('/')
     def hello():
         return 'Hello, World!'
+
+    # register api
+    from app.resources import doctors
+    from app.resources import hospitals
+    app.register_blueprint(doctors.bp)
+    app.register_blueprint(hospitals.bp)
 
     return app
