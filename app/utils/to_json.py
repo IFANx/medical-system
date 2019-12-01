@@ -1,6 +1,5 @@
-import json
 from app.models import Doctor, Hospital
-
+from flask import jsonify
 
 def doctor_to_dict(doctor):
     assert type(doctor) == Doctor, 'Not a Doctor'
@@ -23,11 +22,11 @@ def doctor_to_dict(doctor):
 
 
 def doctor_to_json(doctor):
-    return json.dumps(doctor_to_dict(doctor), ensure_ascii=False)
+    return jsonify(doctor_to_dict(doctor))
 
 
 def doctors_to_json(doctors):
-    return json.dumps([doctor_to_dict(d) for d in doctors], ensure_ascii=False)
+    return jsonify([doctor_to_dict(d) for d in doctors])
 
 
 def hospital_to_dict(hospital):
@@ -44,9 +43,9 @@ def hospital_to_dict(hospital):
 
 
 def hospital_to_json(hospital):
-    return json.dumps(hospital_to_dict(hospital), ensure_ascii=False)
+    return jsonify(hospital_to_dict(hospital))
 
 
 def hospitals_to_json(hospitals):
-    return json.dumps([hospital_to_dict(h) for h in hospitals], ensure_ascii=False)
+    return jsonify([hospital_to_dict(h) for h in hospitals])
 
