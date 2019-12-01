@@ -7,7 +7,7 @@ from app.database import db
 bp = Blueprint('doctors', __name__, url_prefix='/doctors')
 
 
-'''/doctors?q={query}&faculty={}&hid={}&order={article}&area={}&page={uint}'''
+'''/doctors?q={query}&faculty={}&hid={}&order={article}&page={uint}'''
 @bp.route('', methods=['GET'])
 def doctors():
     if request.method == 'GET':

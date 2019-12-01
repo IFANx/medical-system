@@ -8,7 +8,7 @@ from app.utils.to_json import hospital_to_json, hospitals_to_json
 bp = Blueprint('hospitals', __name__, url_prefix='/hospitals')
 
 
-'''/hospitals?q={query}&province={}&city={}&hosclass={}&order={class}&page={uint}'''
+'''/hospitals?q={query}&province={}&city={}&order={class}&page={uint}'''
 @bp.route('', methods=['GET'])
 def hospitals():
     if request.method == 'GET':
@@ -27,6 +27,8 @@ def hospitals():
             h = h.filter(Hospital.province == province)
         if city:
             h = h.filter(Hospital.city == city)
+        if hosclass:
+            h = h.filter(Hospital.hos_class == hosclass)
         if order == 'hosclass':
             h = h.order_by(Hospital.hos_class.desc())
 
