@@ -108,3 +108,6 @@ venv.bak/
 
 # customized
 raw_data/
+nginx.conf
+uwsgi.ini
+ini.sh
